@@ -1,3 +1,4 @@
+# Easiest way to implement a stack, but pop is O(n)
 class MyStack(object):
 
     def __init__(self):
@@ -40,3 +41,26 @@ class MyStack(object):
 # param_2 = obj.pop()
 # param_3 = obj.top()
 # param_4 = obj.empty()
+
+# Implementation below could make pop and top O(1)
+
+import collections
+class Stack(object):
+    def __init__(self):
+        self.queue = None
+
+    def push(self, x):
+        q = collections.deque()
+        q.append(x)
+        q.append(self.queue)
+        self.queue = q
+
+    def pop(self):
+        self.queue.popleft()
+        self.queue = self.queue.popleft()
+
+    def top(self):
+        return self.queue[0]
+
+    def empty(self):
+        return not self.queue
