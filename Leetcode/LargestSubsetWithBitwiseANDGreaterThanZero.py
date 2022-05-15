@@ -17,8 +17,13 @@ class Solution(object):
             x = 31
             while candidates[i] > 0:
                 if (candidates[i] & 1 == 1):
+                    # the count of set bits at the corresponding bit position
+                    # indicating that there are n elements with set bit at the same bit position
+                    # hence it shows that the Bitwise AND for all these n elements is always positive at this bit position 
                     bit[x] += 1
                 # right shift the number by 1 (number divided by 2)
                 candidates[i] = candidates[i] >> 1
                 x -= 1
+        # Return the maximum count of set bits at any position since the Bitwise AND of the n elements at this bit position 
+        # will be always positive (non-zero)
         return max(bit)
