@@ -10,6 +10,8 @@ class Solution(object):
         n = len(matrix[0])
         
         def findpath(x, y):
+            # if write 'if (x, y) in dct.keys()' it will spend O(N) time in Python 2 because of constructing a list of keys,
+            # or a larger constant in Python 3 because of generating a view of dictionary key view
             if (x, y) in dct:
                 return dct[(x, y)]
             
