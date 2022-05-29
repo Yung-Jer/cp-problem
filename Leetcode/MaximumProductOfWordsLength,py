@@ -1,7 +1,7 @@
 # Surprisingly, same solution in Python 2 will TLE while in Python 3 will AC.
 
 class Solution:
-    def maxProduct(self, words: List[str]) -> int:
+    def maxProduct(self, words: list[str]) -> int:
         max_val = 0
         for i in range(len(words)):
             for j in range(i+1, len(words)):
