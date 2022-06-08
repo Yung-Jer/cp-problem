@@ -1,3 +1,6 @@
+# Method 1: DP with O(N) memory
+# Run slower than method 2 because checking every index is expensive
+
 class Solution:
     def longestPalindrome(self, s: str) -> str:
         res = (0,0)
@@ -19,3 +22,21 @@ class Solution:
                 start -= 1
                 
         return s[res[0]:res[1]+1]
+
+# Method 2: Expanding from the middle with O(1) memory
+# Run faster than method 1 because we do not need to check every index
+class Solution2:
+    def longestPalindrome(self, s: str) -> str:
+        
+        def recur(left, right, longest = ''):
+            string = ""
+            while left >= 0 and right < len(s) and s[left] == s[right]:
+                string = s[left:right+1]
+                left -= 1
+                right += 1
+                
+            if len(string) > len(longest):
+                longest = string
+            return longest
+        
+        return max([max([recur(i,i), recur(i,i+1)], key=len) for i in range(len(s))], key=len)
