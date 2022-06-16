@@ -27,16 +27,14 @@ class Solution:
 # Run faster than method 1 because we do not need to check every index
 class Solution2:
     def longestPalindrome(self, s: str) -> str:
+        n = len(s)
         
-        def recur(left, right, longest = ''):
-            string = ""
-            while left >= 0 and right < len(s) and s[left] == s[right]:
-                string = s[left:right+1]
+        def helper(left, right):
+            
+            while left >= 0 and right < n and s[left] == s[right]:
                 left -= 1
                 right += 1
-                
-            if len(string) > len(longest):
-                longest = string
-            return longest
-        
-        return max([max([recur(i,i), recur(i,i+1)], key=len) for i in range(len(s))], key=len)
+            
+            return s[left+1:right]
+            
+        return max([max(helper(i,i), helper(i,i+1), key = len) for i in range(n)], key = len)
