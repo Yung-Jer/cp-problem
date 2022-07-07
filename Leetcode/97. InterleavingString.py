@@ -15,9 +15,11 @@ class Solution:
             elif i == m and j == n:
                 return True
             elif i == m:
-                return s2[j:] == s3[i+j:]
+                _seen[(i,j)] = (s2[j:] == s3[i+j:])
+                return _seen[(i,j)]
             elif j == n:
-                return s1[i:] == s3[i+j:]
+                _seen[(i,j)] = (s1[i:] == s3[i+j:])
+                return _seen[(i,j)]
             elif s1[i] == s3[i+j] and s2[j] == s3[i+j]:
                 _seen[(i,j)] = dp(i+1,j) or dp(i, j+1)
                 return _seen[(i,j)]
