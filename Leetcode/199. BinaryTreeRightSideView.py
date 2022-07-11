@@ -9,6 +9,7 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
+# Method 1: BFS
 class Solution:
     def rightSideView(self, root: Optional[TreeNode]) -> list[int]:
         res = []
@@ -26,4 +27,25 @@ class Solution:
                 if node.right:
                     q.append(node.right)
             res.append(val)
+        return res
+
+# Method 2: DFS
+class Solution2:
+    def rightSideView(self, root: Optional[TreeNode]) -> list[int]:
+        if not root:
+            return []
+        res = []
+        
+        def dfs(node, level):
+            if level >= len(res):
+                res.append(node.val)
+            else: 
+                res[level] = node.val
+                
+            if node.left:
+                dfs(node.left, level + 1)
+            if node.right:
+                dfs(node.right, level + 1)
+                
+        dfs(root, 0)
         return res
