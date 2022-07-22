@@ -1,7 +1,7 @@
 import collections
 # Definition for a binary tree node.
 class Optional:
-    def __init__(self, val):
+    def __init__(self, val=None):
         self.val = val
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):

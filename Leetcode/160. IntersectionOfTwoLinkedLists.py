@@ -5,8 +5,8 @@ class ListNode:
         self.next = None
 
 class Optional:
-    def __init__(self, node):
-        self.node = node
+    def __init__(self, val=None):
+        self.val = val
 
 # Two running pointers pointing to two heads of the linked lists
 # When the pointers pointing to None (i.e. end of the linked list), switch to head of another linked list
