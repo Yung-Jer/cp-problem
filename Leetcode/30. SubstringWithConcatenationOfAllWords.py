@@ -3,7 +3,6 @@ class Solution:
         _seen = {}
         for i in words:
             _seen[i] = 1 if i not in _seen else _seen[i] + 1
-        print(_seen)
         m = len(words)
         n = len(words[0])
         res = []
