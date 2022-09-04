@@ -13,7 +13,7 @@ class Optional:
 
 from collections import defaultdict
 class Solution:
-    def verticalTraversal(self, root: Optional[TreeNode]) -> List[List[int]]:
+    def verticalTraversal(self, root: Optional[TreeNode]) -> list[list[int]]:
         ans = []
         def dfs(node, row, col):
             if node:
