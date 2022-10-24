@@ -1,5 +1,5 @@
 class Solution:
-    def findErrorNums(self, nums: list[int]) -> list[int]:
+    def findErrorNums(self, nums: "list[int]") -> "list[int]":
         _seen = set()
         temp = 0
         for i, num in enumerate(nums):
